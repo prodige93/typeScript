@@ -1,11 +1,14 @@
-## Projet TypeScript – Exercices de typage
+## Mon projet TypeScript – Exercices de typage
 
-Ce dépôt contient de petits exercices en TypeScript pour pratiquer le typage statique (définition de types, intersections, options, etc.).
+J’ai rassemblé ici de petits exercices en TypeScript pour pratiquer le typage statique (définition de types, intersections, propriétés optionnelles, génériques, etc.).
 
 ### Contenu
 
-- **`made-variables/index.ts`** : exercices autour des types pour modéliser des personnages, animaux de compagnie, équipements, héros et magiciens.
-- **`use-variable/index.ts`** : exemple simple de typage d’une fonction JavaScript existante (`sayHello`) sans modifier le code JS.
+- **`made-variables/index.ts`** : exercices de modélisation (personnages, familiers, équipements, héros, magiciens) avec des types et intersections.
+- **`use-variable/index.ts`** : typage d’une fonction JavaScript existante (`sayHello`) en ne modifiant que la partie TypeScript.
+- **`damage/damage.ts`** : exercice de typage d’une fonction qui inflige des dégâts (objets, interfaces, retours).
+- **`type-generique/index.ts`** : exemples de typage générique (types génériques, fonction générique, `Partial<T>`, etc.).
+- **`my-file/my-file.ts`** : exemple simple de fonction typée (addition).
 
 ### Prérequis
 
@@ -14,37 +17,41 @@ Ce dépôt contient de petits exercices en TypeScript pour pratiquer le typage s
 
 ### Installation
 
-Dans un terminal, à la racine du projet :
+Dans un terminal, à la racine du projet :
 
 ```bash
 npm install
 ```
 
-Cela installe uniquement TypeScript en dépendance de développement (voir `package.json`).
+Cela installe TypeScript en dépendance de développement (voir `package.json`).
 
 ### Compilation TypeScript
 
 Le projet contient un fichier `tsconfig.json` qui configure le compilateur TypeScript.
 
-Pour compiler les fichiers TypeScript, vous pouvez par exemple utiliser la commande suivante :
+Pour vérifier les types sans générer de fichiers JavaScript :
 
 ```bash
 npx tsc --noEmit
 ```
 
-Cette commande demande à TypeScript de vérifier les types sans générer de fichiers JavaScript, ce qui est pratique pour valider vos solutions aux exercices.
-
-Si vous préférez générer du JavaScript, vous pouvez lancer simplement :
+Pour générer les fichiers JavaScript :
 
 ```bash
 npx tsc
 ```
 
-et ajuster au besoin les options `rootDir` / `outDir` dans `tsconfig.json`.
+Par défaut, TypeScript va générer les `.js` à côté des `.ts` (sauf si je configure `rootDir` / `outDir`).
 
 ### Exécuter les exemples
 
-Une fois compilé (ou en utilisant `ts-node` si vous l’installez), vous pouvez exécuter les exemples, par exemple pour `use-variable` :
+Après compilation, je peux lancer les fichiers générés avec Node, par exemple :
+
+```bash
+node damage/damage.js
+```
+
+Ou encore :
 
 ```bash
 node use-variable/index.js
@@ -52,11 +59,12 @@ node use-variable/index.js
 
 ### Objectif pédagogique
 
-Le but principal de ce projet est de vous entraîner à :
+Mon but principal avec ce projet est de m’entraîner à :
 
 - **corriger des erreurs de typage** signalées par TypeScript,
 - **créer et combiner des types** (`type`, intersections `&`, propriétés optionnelles, etc.),
-- **améliorer la sécurité et la clarté du code** tout en gardant le JavaScript existant intact.
+- **utiliser des génériques** et quelques types utilitaires,
+- **améliorer la sécurité et la clarté du code** sans casser le code existant.
 
-N’hésitez pas à modifier les types dans les fichiers `.ts` (uniquement là où c’est indiqué dans les commentaires) jusqu’à ce que le compilateur ne signale plus d’erreurs.
+Je modifie les types dans les fichiers `.ts` (là où c’est indiqué) jusqu’à ce que le compilateur ne signale plus d’erreurs.
 
